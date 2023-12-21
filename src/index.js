@@ -1,4 +1,6 @@
-const { Client, GatewayIntentBits, Partials } = require('discord.js');
+const { Client, GatewayIntentBits, Partials, Collection } = require('discord.js');
+const { eventListener } = require('./bot/handlers/eventHandler.js');
+const { commandListener } = require('./bot/handlers/commandHandler.js');
 require('dotenv').config();
 
 const client = new Client({
@@ -16,4 +18,10 @@ const client = new Client({
     ]
 });
 
-client.login(process.env.token);
+client.commands = new Collection();
+client.commandArray = [];
+
+client.login(process.env.token).then(() => {
+    eventListener(client);
+    commandListener(client);
+});
