@@ -1,0 +1,23 @@
+{
+  "name": "alphabotcore",
+  "version": "1.0.0",
+  "description": "",
+  "main": "src/index.js",
+  "scripts": {
+    "start": "node src/index.js"
+  },
+  "author": "WoozyStudio <woozystudiocontact@gmail.com>",
+  "license": "MIT",
+  "directories": {
+    "lib": "src",
+    "test": "test"
+  },
+  "private": true,
+  "dependencies": {
+    "adobly": "^0.0.1",
+    "colors": "^1.4.0",
+    "discord-api-types": "^0.37.66",
+    "discord.js": "^14.14.1",
+    "dotenv": "^16.3.1"
+  }
+}

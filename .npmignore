@@ -1,0 +1,17 @@
+# Packages
+node_modules/
+package-lock.json
+
+# Log files
+logs/
+*.log
+
+# Env
+.env
+
+# Runtime
+.runtime/
+
+# Miscellaneous
+.adobly/
+.github/

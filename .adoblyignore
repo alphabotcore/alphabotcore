@@ -1,0 +1,13 @@
+# Packages
+node_modules/
+
+# Log files
+logs/
+*.log
+
+# Env
+.env
+
+# Git files
+.gitignore
+.gitattributes
