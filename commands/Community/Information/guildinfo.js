@@ -57,7 +57,7 @@ module.exports = {
             },
             {
                 name: "`🏆` Server Owner",
-                value: `<t:${parseInt(interaction.guild.createdTimestamp / 1000)}:F> (<t:${parseInt(interaction.guild.createdTimestamp / 1000)}:R>)`,
+                value: `<@${interaction.guild.ownerId}>`,
                 inline: false
             },
             {
@@ -87,7 +87,7 @@ module.exports = {
             },
             {
                 name: "`👤` Roles",
-                value: `${DisplayRoles(userRoles)}/${userRoles.length}`,
+                value: `${DisplayRoles(userRoles)}/250`,
                 inline: true
             },
             {
@@ -97,7 +97,7 @@ module.exports = {
             },
         )
         .setTimestamp()
-        .setFooter({ text: `Requested by @${interaction.user.username}` })
+        .setFooter({ iconURL: interaction.user.displayAvatarURL(), text: `Requested by @${interaction.user.username}` })
 
         interaction.reply({ embeds: [GuildEmbed] })
     }
