@@ -1,7 +1,7 @@
 const { Client, GatewayIntentBits, Partials, Collection } = require('discord.js');
 const { eventListener } = require('./handlers/eventHandler.js');
 const { commandListener } = require('./handlers/commandHandler.js');
-require('dotenv').config();
+const config = require('./config/config.json');
 
 const client = new Client({
     intents: [
@@ -21,7 +21,7 @@ const client = new Client({
 client.commands = new Collection();
 client.commandArray = [];
 
-client.login(process.env.token).then(() => {
+client.login(config.bot.token).then(() => {
     eventListener(client);
     commandListener(client);
 });

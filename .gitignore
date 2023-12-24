@@ -6,5 +6,5 @@ package-lock.json
 logs/
 *.log
 
-# Env
-.env
+# Config
+config/
