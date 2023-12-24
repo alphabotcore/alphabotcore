@@ -13,7 +13,7 @@ module.exports = {
         const channel = interaction.options.getChannel('channel');
 
         const ChannelEmbed = new EmbedBuilder()
-        .setAuthor({ name: `User Information`, iconURL: client.user.displayAvatarURL() })
+        .setAuthor({ name: `Channel Information`, iconURL: client.user.displayAvatarURL() })
         .setTitle(`About ${channel.name} channel.`)
         .setColor(0x2B2D31)
         .addFields(
