@@ -3,7 +3,7 @@ const { SlashCommandBuilder, ChatInputCommandInteraction, Client, EmbedBuilder, 
 module.exports = {
     data: new SlashCommandBuilder()
         .setName("guildinfo")
-        .setDescription("Get info about the server."),
+        .setDescription("Receive information from the server you are on."),
     /**
      * @param {ChatInputCommandInteraction} interaction 
      * @param {Client} client 

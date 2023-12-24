@@ -3,7 +3,7 @@ const { SlashCommandBuilder, ChatInputCommandInteraction, Client, EmbedBuilder }
 module.exports = {
     data: new SlashCommandBuilder()
         .setName("channelinfo")
-        .setDescription("Get info about a channel.")
+        .setDescription("Receive information from a specific channel.")
         .addChannelOption(option => option.setName('channel').setDescription('Select a channel.').setRequired(true)),
     /**
      * @param {ChatInputCommandInteraction} interaction 

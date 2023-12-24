@@ -3,7 +3,7 @@ const { SlashCommandBuilder, ChatInputCommandInteraction, Client, EmbedBuilder }
 module.exports = {
     data: new SlashCommandBuilder()
         .setName("roleinfo")
-        .setDescription("Get info about a role.")
+        .setDescription("Receive information from a specific role.")
         .addRoleOption(option => option.setName('role').setDescription('Select a role.').setRequired(true)),
     /**
      * @param {ChatInputCommandInteraction} interaction 

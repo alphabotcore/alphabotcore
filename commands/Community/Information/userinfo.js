@@ -3,7 +3,7 @@ const { SlashCommandBuilder, ChatInputCommandInteraction, Client, EmbedBuilder }
 module.exports = {
     data: new SlashCommandBuilder()
         .setName("userinfo")
-        .setDescription("Get info about a member.")
+        .setDescription("Receive information from a specific user.")
         .addUserOption(option => option.setName('target').setDescription('Select a user from the server.').setRequired(true)),
     /**
      * @param {ChatInputCommandInteraction} interaction 
