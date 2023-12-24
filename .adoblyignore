@@ -5,8 +5,8 @@ node_modules/
 logs/
 *.log
 
-# Env
-.env
+# Config
+config/
 
 # Git files
 .gitignore
