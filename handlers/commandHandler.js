@@ -12,7 +12,7 @@ const { join } = require('node:path');
 function commandListener(client) {
     let commandArray = [];
 
-    const path = join(process.cwd(), 'commands');
+    /**const path = join(process.cwd(), 'commands');
     const foldermain = fs.readdirSync(path);
 
     for (const folders of foldermain) {
@@ -29,6 +29,32 @@ function commandListener(client) {
         }
 
         client.application.commands.set(commandArray);
+    }*/
+
+    const path = join(process.cwd(), 'commands');
+    const foldermain = fs.readdirSync(path);
+
+    for(const folders of foldermain) {
+
+        const foldmin = join(process.cwd(), 'commands', `${folders}`);
+        const foldermin = fs.readdirSync(foldmin);
+
+        for(const folder of foldermin){
+
+            const fil = join(process.cwd(), 'commands', `${folders}`, `${folder}`);
+            const files = fs.readdirSync(fil).filter((file) => file.endsWith('.js'));
+
+            for(const file of files) {
+                const command = require(`../commands/${folders}/${folder}/${file}`);
+
+                client.commands.set(command.data.name, command);
+                commandArray.push(command.data.toJSON());
+
+                console.log(`[Command] ${command.data.name}`.cyan + ` successfully uploaded.`);
+            }
+        }
+
+        client.application.commands.set(commandArray)
     }
 }
 
