@@ -11,7 +11,7 @@ const { join } = require('node:path');
 
 function eventListener(client) {
 
-    const path = join(process.cwd(), 'src', 'bot', 'listeners', 'app');
+    const path = join(process.cwd(), 'listeners', 'app');
     const files = fs.readdirSync(path).filter((file) => file.endsWith('.js'));
 
     for (const file of files) {
