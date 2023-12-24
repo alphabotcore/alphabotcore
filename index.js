@@ -1,6 +1,6 @@
 const { Client, GatewayIntentBits, Partials, Collection } = require('discord.js');
-const { eventListener } = require('./bot/handlers/eventHandler.js');
-const { commandListener } = require('./bot/handlers/commandHandler.js');
+const { eventListener } = require('./handlers/eventHandler.js');
+const { commandListener } = require('./handlers/commandHandler.js');
 require('dotenv').config();
 
 const client = new Client({

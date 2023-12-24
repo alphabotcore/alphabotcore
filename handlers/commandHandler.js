@@ -12,11 +12,11 @@ const { join } = require('node:path');
 function commandListener(client) {
     let commandArray = [];
 
-    const path = join(process.cwd(), 'src', 'bot', 'commands');
+    const path = join(process.cwd(), 'commands');
     const foldermain = fs.readdirSync(path);
 
     for (const folders of foldermain) {
-        const path = join(process.cwd(), 'src', 'bot', 'commands', `${folders}`);
+        const path = join(process.cwd(), 'commands', `${folders}`);
         const files = fs.readdirSync(path).filter((file) => file.endsWith('.js'));
 
         for (const file of files) {
