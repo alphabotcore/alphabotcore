@@ -9,7 +9,6 @@
   "author": "WoozyStudio <woozystudiocontact@gmail.com>",
   "license": "MIT",
   "directories": {
-    "lib": "src",
     "test": "test"
   },
   "private": true,
