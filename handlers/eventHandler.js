@@ -10,22 +10,38 @@ const { join } = require('node:path');
  */
 
 function eventListener(client) {
+    const prinpath = join(process.cwd(), 'events');
+    const principal = fs.readdirSync(prinpath);
 
-    const path = join(process.cwd(), 'listeners', 'app');
-    const files = fs.readdirSync(path).filter((file) => file.endsWith('.js'));
+    for (const folders of principal) {
 
-    for (const file of files) {
-        const listener = require(`../listeners/app/${file}`);
+        const foldersspath = join(process.cwd(), 'events', `${folders}`);
+        const folderss = fs.readdirSync(foldersspath);
 
-        if (listener.rest) {
-            if (listener.once) client.rest.once(listener.name, (...args) => listener.execute(...args, client));
-            else client.rest.on(listener.name, (...args) => listener.execute(...args, client))
-        } else {
-            if (listener.once) client.once(listener.name, (...args) => listener.execute(...args, client));
-            else client.on(listener.name, (...args) => listener.execute(...args, client))
+        for (const folder of folderss) {
+            const filespath = join(process.cwd(), 'events', `${folders}`, `${folder}` );
+            const files = fs.readdirSync(filespath).filter((file) => file.endsWith('.js'));
+
+            for (const file of files) {
+                const event = require(`../events/${folders}/${folder}/${file}`);
+
+                if (event.rest) {
+                    if (event.once)
+                        client.rest.once(event.name, (...args) =>
+                            event.execute(...args, client)
+                        );
+                    else
+                        client.rest.on(event.name, (...args) =>
+                            event.execute(...args, client)
+                        );
+                } else {
+                    if (event.once)
+                        client.once(event.name, (...args) => event.execute(...args, client));
+                    else client.on(event.name, (...args) => event.execute(...args, client));
+                }
+                console.log(`[Event] ${event.name}`.red + ` successfully uploaded.`);
+            }
         }
-
-        console.log("[Event] ".red + `${file}`.red + ` successfully uploaded.`);
     }
 }
 
