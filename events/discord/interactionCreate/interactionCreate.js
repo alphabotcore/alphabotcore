@@ -20,6 +20,11 @@ module.exports = {
 
             await button.execute(interaction, client);
 
+        } else if (interaction.isStringSelectMenu()){
+            const menu = client.menus.get(interaction.customId);
+            if (!menu) return new Error(`MenuError: This menu does not have a code assigned to it.`)
+
+            await menu.execute(interaction, client);
         }
     }
 }
