@@ -14,13 +14,16 @@ module.exports = {
         const member = await interaction.guild.members.fetch(user.id);
 
         const UserEmbed = new EmbedBuilder()
-        .setAuthor({ name: `${user.username} (${user.id})`, iconURL: user.displayAvatarURL() })
+        .setAuthor({ name: `User Information`, iconURL: client.user.displayAvatarURL() })
+        .setTitle(`About @${user.username}`)
         .setColor(0x2B2D31)
-        .setDescription(`
-            **Username:** \`${user.username}\` (${user.id})
-            **Discord Member Since:** <t:${parseInt(user.createdTimestamp / 1000)}> (<t:${parseInt(user.createdTimestamp / 1000)}:R>)
-            **Server Member Since:** <t:${parseInt(member.joinedAt / 1000)}> (<t:${parseInt(member.joinedAt / 1000)}:R>)
-        `)
+        .addFields(
+            { name: '`🌎` Username', value: `${user}`, inline: true },
+            { name: '`🛒` ID', value: `${user.id}`, inline: true },
+            { name: '`🌟` Discord Member Since', value: `<t:${parseInt(user.createdTimestamp / 1000)}> (<t:${parseInt(user.createdTimestamp / 1000)}:R>)` },
+            { name: '`🧶` Server Member SInce', value: `<t:${parseInt(member.joinedAt / 1000)}> (<t:${parseInt(member.joinedAt / 1000)}:R>)` }
+        )
+        .setThumbnail(user.displayAvatarURL({ size: 2048 }))
 
         interaction.reply({ embeds: [UserEmbed] })
     }
