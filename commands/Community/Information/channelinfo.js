@@ -1,4 +1,5 @@
 const { SlashCommandBuilder, ChatInputCommandInteraction, Client, EmbedBuilder } = require('discord.js');
+const core = require('alphabotcore');
 
 module.exports = {
     data: new SlashCommandBuilder()
@@ -15,7 +16,7 @@ module.exports = {
         const ChannelEmbed = new EmbedBuilder()
         .setAuthor({ name: `Channel Information`, iconURL: client.user.displayAvatarURL() })
         .setTitle(`About ${channel.name} channel.`)
-        .setColor(0x2B2D31)
+        .setColor(core.colors.embed)
         .addFields(
             { name: '`📰` Name', value: `${channel.name}`, inline: true },
             { name: '`🛒` ID', value: `${channel.id}`, inline: true },

@@ -1,5 +1,5 @@
 const { SlashCommandBuilder, ChatInputCommandInteraction, Client, EmbedBuilder, ActionRowBuilder, ButtonBuilder, ButtonStyle } = require('discord.js');
-const color = require('../../../tools/Colors.js');
+const core = require('alphabotcore');
 
 module.exports = {
     data: new SlashCommandBuilder()
@@ -11,7 +11,7 @@ module.exports = {
      */
     async execute(interaction, client) {
         const InviteEmbed = new EmbedBuilder()
-        .setColor(color.embed)
+        .setColor(core.colors.embed)
         .setTitle("Invite AlphaBotCore to your server!")
         .setDescription(`
             AlphaBotCore is a **moderation bot**, it contains a basic moderation system with indispensable commands, and a more advanced system with other utilities. 

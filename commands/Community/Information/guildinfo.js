@@ -1,4 +1,5 @@
 const { SlashCommandBuilder, ChatInputCommandInteraction, Client, EmbedBuilder, ChannelType } = require('discord.js');
+const core = require('alphabotcore');
 
 module.exports = {
     data: new SlashCommandBuilder()
@@ -37,7 +38,7 @@ module.exports = {
         const GuildEmbed = new EmbedBuilder()
         .setAuthor({ name: `Guild Information`, iconURL: `${interaction.guild.iconURL()}` })
         .setTitle(`About @${interaction.guild.name}`)
-        .setColor(0x2B2D31)
+        .setColor(core.colors.embed)
         .setThumbnail(interaction.guild.iconURL({ size: 2048 }))
         .addFields(
             {
