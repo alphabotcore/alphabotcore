@@ -14,7 +14,7 @@
   "private": true,
   "dependencies": {
     "adobly": "^0.0.1",
-    "alphabotcore": "^0.0.1",
+    "alphabotcore": "^0.0.3",
     "colors": "^1.4.0",
     "discord-api-types": "^0.37.66",
     "discord.js": "^14.14.1",
