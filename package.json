@@ -15,6 +15,7 @@
   "dependencies": {
     "adobly": "^0.0.1",
     "alphabotcore": "^0.0.3",
+    "axios": "^1.6.2",
     "colors": "^1.4.0",
     "discord-api-types": "^0.37.66",
     "discord.js": "^14.14.1",
