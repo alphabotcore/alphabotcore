@@ -13,6 +13,7 @@
   },
   "private": true,
   "dependencies": {
+    "@discordjs/rest": "^2.2.0",
     "adobly": "^0.0.1",
     "alphabotcore": "^0.0.3",
     "axios": "^1.6.2",
