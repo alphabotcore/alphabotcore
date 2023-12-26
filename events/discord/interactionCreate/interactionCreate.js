@@ -15,16 +15,29 @@ module.exports = {
             command.execute(interaction, client);
 
         } else if (interaction.isButton()) {
+
             const button = client.buttons.get(interaction.customId);
             if (!button) return new Error(`ButtonError: This button does not have a code assigned to it.`)
 
             await button.execute(interaction, client);
 
         } else if (interaction.isStringSelectMenu()){
+
             const menu = client.menus.get(interaction.customId);
             if (!menu) return new Error(`MenuError: This menu does not have a code assigned to it.`)
 
             await menu.execute(interaction, client);
+
+        } else if (interaction.isUserContextMenuCommand()) {
+
+            const contextCommand = client.commands.get(interaction.commandName);
+            if(!contextCommand) return;
+            
+            try {
+                await contextCommand.execute(interaction, client);
+            } catch (error) {
+                console.error(error)
+            }
         }
     }
 }
