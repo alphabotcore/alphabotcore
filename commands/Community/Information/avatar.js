@@ -1,5 +1,5 @@
 const { SlashCommandBuilder, ChatInputCommandInteraction, Client, EmbedBuilder } = require('discord.js');
-const core = require('alphabotcore');
+const abc = require('alphabotcore');
 
 module.exports = {
     data: new SlashCommandBuilder()
@@ -17,7 +17,7 @@ module.exports = {
         .setTitle(`@${user.username}'s avatar.`)
         .setFooter({ text: `Requested by @${interaction.user.username}`, iconURL: interaction.user.displayAvatarURL() })
         .setImage(`${user.displayAvatarURL({ size: 2048 })}`)
-        .setColor(core.colors.embed)
+        .setColor(abc.colors.embed)
 
         interaction.reply({ embeds: [AvatarEmbed] });
     }

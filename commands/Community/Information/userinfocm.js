@@ -1,5 +1,5 @@
 const { ChatInputCommandInteraction, Client, ContextMenuCommandBuilder, ApplicationCommandType, EmbedBuilder } = require('discord.js');
-const core = require('alphabotcore');
+const abc = require('alphabotcore');
 
 module.exports = {
     data: new ContextMenuCommandBuilder()
@@ -16,7 +16,7 @@ module.exports = {
         const UserEmbed = new EmbedBuilder()
         .setAuthor({ name: `User Information`, iconURL: client.user.displayAvatarURL() })
         .setTitle(`About @${user.username}`)
-        .setColor(core.colors.embed)
+        .setColor(abc.colors.embed)
         .addFields(
             { name: '`🌎` Username', value: `${user}`, inline: true },
             { name: '`🛒` ID', value: `${user.id}`, inline: true },

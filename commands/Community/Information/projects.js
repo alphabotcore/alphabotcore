@@ -1,5 +1,5 @@
 const { SlashCommandBuilder, ChatInputCommandInteraction, Client, EmbedBuilder } = require('discord.js');
-const core = require('alphabotcore');
+const abc = require('alphabotcore');
 
 module.exports = {
     data: new SlashCommandBuilder()
@@ -11,7 +11,7 @@ module.exports = {
      */
     async execute(interaction, client) {
         const ProjectEmbed = new EmbedBuilder()
-        .setColor(core.colors.embed)
+        .setColor(abc.colors.embed)
         .setDescription(`
             **Upcoming Projects:**
             API

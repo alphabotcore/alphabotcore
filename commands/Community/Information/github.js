@@ -1,6 +1,6 @@
 const { SlashCommandBuilder, EmbedBuilder, ChatInputCommandInteraction, Client } = require('discord.js');
 const axios = require('axios');
-const core = require('alphabotcore');
+const abc = require('alphabotcore');
 
 module.exports = {
     data: new SlashCommandBuilder()
@@ -26,14 +26,14 @@ module.exports = {
                 const data = response.data;
 
                 if (!data.items.length) {
-                    return interaction.reply({ content: `${core.icons.crossmark} No repository with that name was found.` });
+                    return interaction.reply({ content: `${abc.icons.crossmark} No repository with that name was found.` });
                 }
 
                 const repo = data.items[0];
                 const repoInfo = await axios.get(repo.url);
 
                 const embed = new EmbedBuilder()
-                    .setColor(core.colors.embed)
+                    .setColor(abc.colors.embed)
                     .setTitle(`Information about the repository: "${repoName}"`)
                     .setDescription(`
                         \`📕\` Repository Name: ${repoInfo.data.name}
