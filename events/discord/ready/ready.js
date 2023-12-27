@@ -1,4 +1,4 @@
-const { Events, Client, ChatInputCommandInteraction } = require('discord.js');
+const { Events, Client, ChatInputCommandInteraction, PresenceUpdateStatus, ActivityType } = require('discord.js');
 require('colors');
 
 module.exports = {
@@ -10,5 +10,6 @@ module.exports = {
     */
     async execute(interaction, client) {
         console.log(`Logged as ${client.user.tag}.`.green)
+        client.user.setPresence({ activities: [{ name: "v1.0.0 | AlphaBotCore © 2023", type: ActivityType.Custom }], status: PresenceUpdateStatus.Idle })
     }
 }
