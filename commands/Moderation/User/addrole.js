@@ -1,4 +1,4 @@
-const { SlashCommandBuilder, ChatInputCommandInteraction, Client } = require('discord.js');
+const { SlashCommandBuilder, ChatInputCommandInteraction, Client, PermissionFlagsBits } = require('discord.js');
 const core = require('alphabotcore');
 
 module.exports = {
