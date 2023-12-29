@@ -1,10 +1,11 @@
-const { SlashCommandBuilder, ChatInputCommandInteraction, Client } = require('discord.js');
+const { SlashCommandBuilder, ChatInputCommandInteraction, Client, PermissionFlagsBits } = require('discord.js');
 const core = require('alphabotcore');
 
 module.exports = {
     data: new SlashCommandBuilder()
         .setName("removerole")
         .setDescription("Remove a role to a specific user.")
+        .setDefaultMemberPermissions(PermissionFlagsBits.ManageRoles)
         .addUserOption(option => option.setName('target').setDescription('Select a user to remove the role.').setRequired(true))
         .addRoleOption(option => option.setName('role').setDescription('Select a role.').setRequired(true)),
     /**
