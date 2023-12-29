@@ -1,4 +1,5 @@
 const { SlashCommandBuilder, ChatInputCommandInteraction, Client, PermissionFlagsBits } = require('discord.js');
+const ModerationPerms = require('../../../permissions/ModerationPermissionsRecomendated.js');
 const abc = require('alphabotcore');
 
 module.exports = {
@@ -13,20 +14,7 @@ module.exports = {
     async execute(interaction, client) {
         const role = await interaction.options.getRole('role');
 
-        //role.permissions.add(PermissionFlagsBits.BanMembers, PermissionFlagsBits.KickMembers, PermissionFlagsBits.ChangeNickname, PermissionFlagsBits.ManageChannels, PermissionFlagsBits.ManageMessages, PermissionFlagsBits.ManageNicknames, PermissionFlagsBits.ManageRoles, PermissionFlagsBits.ModerateMembers, PermissionFlagsBits.MuteMembers, PermissionFlagsBits.ViewAuditLog)
-
-        role.setPermissions([
-            PermissionFlagsBits.BanMembers,
-            PermissionFlagsBits.KickMembers,
-            PermissionFlagsBits.ChangeNickname,
-            PermissionFlagsBits.ManageChannels,
-            PermissionFlagsBits.ManageMessages,
-            PermissionFlagsBits.ManageNicknames,
-            PermissionFlagsBits.ManageRoles,
-            PermissionFlagsBits.ModerateMembers,
-            PermissionFlagsBits.MuteMembers,
-            PermissionFlagsBits.ViewAuditLog
-        ])
+        role.setPermissions([ ModerationPerms ]);
         interaction.reply({ content: `${abc.icons.checkmark} Added moderator permissions to the role ${role}`, ephemeral: true })
     }
 }
