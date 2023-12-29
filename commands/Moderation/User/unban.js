@@ -1,5 +1,5 @@
 const { SlashCommandBuilder, ChatInputCommandInteraction, Client, PermissionFlagsBits, EmbedBuilder } = require('discord.js');
-const core = require('alphabotcore');
+const abc = require('alphabotcore');
 
 module.exports = {
     data: new SlashCommandBuilder()
@@ -17,16 +17,16 @@ module.exports = {
         const reason = interaction.options.getString('reason') || "No reason provided.";
 
         const UnbanEmbed = new EmbedBuilder()
-        .setColor(core.colors.green)
-        .setDescription(`${core.icons.checkmark} <@${id}> was unbanned with the reason of: ${reason}.`)
+        .setColor(abc.colors.green)
+        .setDescription(`${abc.icons.checkmark} <@${id}> was unbanned with the reason of: ${reason}.`)
 
         await interaction.guild.bans.fetch().then(async bans => {
-            if(bans.size = 0) return await interaction.reply({ content: `${core.icons.crossmark} There is no one banned from this guild.`, ephemeral: true });
+            if(bans.size = 0) return await interaction.reply({ content: `${abc.icons.crossmark} There is no one banned from this guild.`, ephemeral: true });
             let bannedId = bans.find(ban => ban.user.id == id);
-            if(!bannedId) return await interaction.reply({ content: `${core.icons.crossmark} The ID given is not banned from this guild.`, ephemeral: true });
+            if(!bannedId) return await interaction.reply({ content: `${abc.icons.crossmark} The ID given is not banned from this guild.`, ephemeral: true });
 
             await interaction.guild.bans.remove(id, reason).catch(err => {
-                return interaction.reply({ content: `${core.icons.crossmark} I don't have permissions to do this action.` });
+                return interaction.reply({ content: `${abc.icons.crossmark} I don't have permissions to do this action.` });
             });
         });
 

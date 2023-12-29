@@ -1,5 +1,5 @@
 const { SlashCommandBuilder, ChatInputCommandInteraction, Client, PermissionFlagsBits, EmbedBuilder } = require('discord.js');
-const core = require('alphabotcore');
+const abc = require('alphabotcore');
 
 module.exports = {
     data: new SlashCommandBuilder()
@@ -17,11 +17,11 @@ module.exports = {
         const reason = interaction.options.getString('reason') || "No reason provided.";
         const member = await interaction.guild.members.fetch(user.id);
 
-        if(interaction.member.id === user.id) return await interaction.reply({ content: `${core.icons.crossmark} You cannot kick yourself!`, ephemeral: true });
+        if(interaction.member.id === user.id) return await interaction.reply({ content: `${abc.icons.crossmark} You cannot kick yourself!`, ephemeral: true });
         
         const UserDMEmbedMessage = new EmbedBuilder()
         .setAuthor({ iconURL: interaction.user.displayAvatarURL(), name: `${interaction.user.username} (${interaction.user.id})` })
-        .setColor(core.colors.embed)
+        .setColor(abc.colors.embed)
         .setDescription(`
             You have been kicked from **${interaction.guild.name}**
         
@@ -32,11 +32,11 @@ module.exports = {
         .setTimestamp()
 
         const InteractionEmbed = new EmbedBuilder()
-        .setColor(core.colors.green)
-        .setDescription(`${core.icons.checkmark} ${user} was kicked with the reason of: ${reason}.`)
+        .setColor(abc.colors.green)
+        .setDescription(`${abc.icons.checkmark} ${user} was kicked with the reason of: ${reason}.`)
 
         await member.kick(reason).catch(err => {
-            return interaction.reply({ conent: `${core.icons.crossmark} I do not have sufficient permissions to do this action.`, ephemeral: true })
+            return interaction.reply({ conent: `${abc.icons.crossmark} I do not have sufficient permissions to do this action.`, ephemeral: true })
         });
 
         await member.send({ embeds: [UserDMEmbedMessage] }).catch(err => { return; });

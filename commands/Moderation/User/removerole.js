@@ -1,5 +1,5 @@
 const { SlashCommandBuilder, ChatInputCommandInteraction, Client, PermissionFlagsBits } = require('discord.js');
-const core = require('alphabotcore');
+const abc = require('alphabotcore');
 
 module.exports = {
     data: new SlashCommandBuilder()
@@ -18,14 +18,14 @@ module.exports = {
         const member = await interaction.guild.members.fetch(target.id);
 
         if (!member.roles.cache.has(role.id)) {
-            await interaction.reply({ content: `${core.icons.crossmark} ${target} does not have this role`, ephemeral: true })
+            await interaction.reply({ content: `${abc.icons.crossmark} ${target} does not have this role`, ephemeral: true })
             return;
         } try {
             await interaction.guild.members.cache.get(target.id).roles.remove(role)
-            await interaction.reply({ content: `${core.icons.checkmark} Successfully removed the role <@&${role.id}> to ${target}!`, ephemeral: true })
+            await interaction.reply({ content: `${abc.icons.checkmark} Successfully removed the role <@&${role.id}> to ${target}!`, ephemeral: true })
         } catch (err) {
             console.error(err)
-            await interaction.reply({ content: `${core.icons.crossmark} Failed to remove the role <@&${role.id}> to ${target}`, ephemeral: true })
+            await interaction.reply({ content: `${abc.icons.crossmark} Failed to remove the role <@&${role.id}> to ${target}`, ephemeral: true })
         }
     }
 }

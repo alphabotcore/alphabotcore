@@ -1,5 +1,5 @@
 const { SlashCommandBuilder, ChatInputCommandInteraction, Client, PermissionFlagsBits } = require('discord.js');
-const core = require('alphabotcore');
+const abc = require('alphabotcore');
 
 module.exports = {
     data: new SlashCommandBuilder()
@@ -18,14 +18,14 @@ module.exports = {
         const member = await interaction.guild.members.fetch(target.id);
 
         if (member.roles.cache.has(role.id)) {
-            await interaction.reply({ content: `${core.icons.crossmark} ${target} already has this role!` })
+            await interaction.reply({ content: `${abc.icons.crossmark} ${target} already has this role!` })
             return;
         } try {
             await interaction.guild.members.cache.get(target.id).roles.add(role)
-            await interaction.reply({ content: `${core.icons.checkmark} Successfully added the role <@&${role.id}> to ${target}!` })
+            await interaction.reply({ content: `${abc.icons.checkmark} Successfully added the role <@&${role.id}> to ${target}!` })
         } catch (err) {
             console.error(err)
-            await interaction.reply({ content: `${core.icons.crossmark} Failed to add the role <@&${role.id}> to ${target}`, ephemeral: true })
+            await interaction.reply({ content: `${abc.icons.crossmark} Failed to add the role <@&${role.id}> to ${target}`, ephemeral: true })
         }
     }
 }
