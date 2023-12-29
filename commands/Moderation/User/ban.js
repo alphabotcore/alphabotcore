@@ -41,7 +41,7 @@ module.exports = {
 
         await banUser.send({ embeds: [UserDMEmbedMessage] }).catch(err => { return; });
 
-        await interaction.reply({ embeds: [InteractionEmbed] });
+        await interaction.reply({ embeds: [InteractionEmbed], ephemeral: true });
 
     }
 }
