@@ -18,6 +18,8 @@ module.exports = {
         const member = await interaction.guild.members.fetch(user.id);
         const nickname = interaction.options.getString('nickname');
 
+        if(!member.kickable) return await interaction.reply({ content: `${abc.icons.crossmark} I cannot moderate this user as he has a higher role than me.`, ephemeral: true });
+
         const NicknameEmbed = new EmbedBuilder()
         .setColor(abc.colors.green)
         .setDescription(`${abc.icons.checkmark} The nickname of the user \`@${user.username}\` has been changed to the nickname \`${nickname}\`.`)
