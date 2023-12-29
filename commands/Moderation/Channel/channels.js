@@ -1,10 +1,11 @@
-const { SlashCommandBuilder, ChatInputCommandInteraction, Client, ChannelType } = require('discord.js');
+const { SlashCommandBuilder, ChatInputCommandInteraction, Client, ChannelType, PermissionFlagsBits } = require('discord.js');
 const abc = require('alphabotcore');
 
 module.exports = {
     data: new SlashCommandBuilder()
         .setName("channels")
         .setDescription("Create or delete channels.")
+        .setDefaultMemberPermissions(PermissionFlagsBits.ManageChannels)
         .addSubcommand(subcommand => subcommand
             .setName("create")
             .setDescription("Creates a channel from the server.")
