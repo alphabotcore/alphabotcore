@@ -1,5 +1,5 @@
 const { SlashCommandBuilder, ChatInputCommandInteraction, Client, PermissionFlagsBits } = require('discord.js');
-const ModerationPerms = require('../../../permissions/ModerationPermissionsRecomendated.js');
+const ModerationPerms = require('../../../permissions/ModerationRecomendedPermissions.js');
 const abc = require('alphabotcore');
 
 module.exports = {
