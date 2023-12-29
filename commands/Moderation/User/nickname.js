@@ -1,4 +1,4 @@
-const { SlashCommandBuilder, ChatInputCommandInteraction, Client } = require('discord.js');
+const { SlashCommandBuilder, ChatInputCommandInteraction, Client, PermissionFlagsBits } = require('discord.js');
 const abc = require('alphabotcore');
 const { EmbedBuilder } = require('@discordjs/builders');
 
@@ -6,6 +6,7 @@ module.exports = {
     data: new SlashCommandBuilder()
         .setName("nickname")
         .setDescription("Modifies a nickname of a specific user.")
+        .setDefaultMemberPermissions(PermissionFlagsBits.ManageNicknames)
         .addUserOption(option => option.setName('target').setDescription('The user you are going to change the nickname.').setRequired(true))
         .addStringOption(option => option.setName('nickname').setDescription('Write the new user nickname.').setRequired(true)),
     /**
